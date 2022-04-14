@@ -6,7 +6,7 @@
     "scripts": {
         "test": "jest"
     },
-    "author": "",
+    "author": "Jem Irving",
     "license": "ISC",
     "dependencies": {
         "express": "^4.16.4"
