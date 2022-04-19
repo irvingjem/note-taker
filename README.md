@@ -1,11 +1,28 @@
-# Note Taker Starter Code
+# Note Taker
 
 ## USER STORY
 AS A small business owner
 I WANT to be able to write and save notes
 SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
+## Table of Contents 
+------
 
+* [Installation](#installation)
+
+* [About](#about)
+
+* [Demo](#demo)
+
+* [Author](#author)
+
+## Installation
+
+To install necessary dependencies, run the following command: npm i express
+
+## About
+
+## Author
 ## SPECIFICATIONS
 GIVEN a note-taking application
 WHEN I open the Note Taker
