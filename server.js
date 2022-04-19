@@ -17,6 +17,11 @@ app.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
+// Route for .json reading
+app.get("/api/notes", (req, res) => {
+    res.sendFile(path.join(__dirname, "/db/db.json"));
+});
+
 // route for main page
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"));
