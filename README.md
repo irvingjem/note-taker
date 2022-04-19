@@ -18,7 +18,7 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
 ## Installation
 
-To install necessary dependencies, run the following command: npm i express
+To install necessary dependencies, run the following command: <br> npm i express
 
 ## About
 

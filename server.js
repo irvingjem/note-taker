@@ -27,7 +27,23 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
+// save note adding to db.json
+app.post("/api/notes", (req, res) => {
+    let newNote = req.body;
+    let listNote = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+    let noteLength = (noteList.length).toString();
 
+    // 
+    newNote.id = noteLength;
+    // push note to list in the db.json
+    listNote.push(newNote);
+
+    // write the .json using stringify to the db.json
+    fs.writeFileSync("./db/db.json", JSON.stringify(listNote));
+    res.json(listNote)
+})
+
+// Delete note 
 
 
 
