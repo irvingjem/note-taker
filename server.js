@@ -10,12 +10,25 @@ const PORT = process.env.PORT || 3000;
 // Setup data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static('public'));
 
-//Require routes file
-require('./routes/routes')(app);
+//Route for notes file
+app.get("/notes", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/notes.html"));
+});
 
-// Setup listener
+// route for main page
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+});
+
+
+
+
+
+
+
+// Listener for server
 app.listen(PORT, function() {
     console.log("App listening on PORT: " + PORT);
 });
