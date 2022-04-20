@@ -7,22 +7,22 @@ const writeFile = util.promisify(fs.writeFile)
 
 // creating class to store notes
 class Store {
-    // read method
+    // read function
     read() {
         return readFile('db/db.json', 'utf-8');
     };
 
-    // write method
+    // write function
     write(note) {
         return writeFile('db/db.json', JSON.stringify(note));
     };
 
-    // get notes method
+    // get function
     getNotes() {
         return this.read().then((notes) => {
             let parsedNotes;
 
-            // if no notes, send back empty array
+            // if nothing saved send back empty array
             try {
                 parsedNotes = [].concat(JSON.parse(notes));
             } catch (err) {
@@ -44,9 +44,9 @@ class Store {
             .then(() => newNote);
     };
 
-    // delete note method
+    // delete note function
     deleteNote(id) {
-        // get notes, remove the note with the corresponding id, write remaining notes again
+        // get notes, remove the note based off id, write notes again
         return this.getNotes()
             .then((notes) => notes.filter((note) => note.id !== id))
             .then((filteredNotes) => this.write(filteredNotes));
