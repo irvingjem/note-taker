@@ -39,7 +39,7 @@ class Store {
 
         const newNote = { title, text };
 
-        // get notes, add new note, write all notes again, return new note
+        // get notes | add new note | write all notes again | return new note
         return this.notesGet()
             .then((notes) => [...notes, newNote])
             .then((updatedNotes) => this.write(updatedNotes))
