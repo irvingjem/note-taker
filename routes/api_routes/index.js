@@ -5,35 +5,31 @@ const router = express.Router();
 
 // returns notes
 router.get("/notes", (req, res) => {
-    let newNote = req.body;
-    let listNote = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-    let noteLength = (noteList.length).toString();
+    // getting saved notes 
+    store.notesGet()
+        .then((notes) => {
+            // get notes in .json format
+            return res.json(notes)
+        })
+        // error catcher
+        .catch((err) => res.status(404).json(err));
 
-    // 
-    newNote.id = noteLength;
-    // push note to list in the db.json
-    listNote.push(newNote);
-
-    // write the .json using stringify to the db.json
-    fs.writeFileSync("./db/db.json", JSON.stringify(listNote));
-    res.json(listNote)
 })
 
-router.post("/api/notes", (req, res) => {});
+// post notes to note html
+router.post("/notes", (req, res) => {
+    // adding note function
+    store.noteAdd(req.body)
+        //writes the note as .json 
+        .then((note) => res.json(note))
+});
 
-// Delete note based on id that is assigned to it
-router.delete("/api/notes/:id", (req, res) => {
-    let listNote = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-    let noteId = (req.params.id).toString();
-
-    // filter through ids so there are not duplicates
-    listNote = listNote.filter(selected => {
-        return selected.id != noteId;
-    })
-
-    // then update the .json data so the note is correctly displayed
-    fs.writeFileSync("./db/db.json", JSON.stringify(listNote));
-    res.json(listNote);
+// Delete note from stored
+router.delete("/notes/:id", (req, res) => {
+    // checks the stored notes by id and deletes by id
+    store.deleteNote(req.params.id)
+        .then((note) => res.json({ ok: true }))
+        .catch((err) => res.status(500).json(err));
 })
 
 module.exports = router;
