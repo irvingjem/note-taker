@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 
-// save note adding to db.json
-app.post("/api/notes", (req, res) => {
+// returns notes
+router.get("/notes", (req, res) => {
     let newNote = req.body;
     let listNote = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
     let noteLength = (noteList.length).toString();
@@ -19,10 +19,10 @@ app.post("/api/notes", (req, res) => {
     res.json(listNote)
 })
 
-
+router.post("/api/notes", (req, res) => {});
 
 // Delete note based on id that is assigned to it
-app.delete("/api/notes/:id", (req, res) => {
+router.delete("/api/notes/:id", (req, res) => {
     let listNote = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
     let noteId = (req.params.id).toString();
 
