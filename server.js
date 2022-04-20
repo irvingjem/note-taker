@@ -1,8 +1,8 @@
 // Node modules
 const express = require("express");
 const fs = require("fs");
-const routeApi = require('./routes/apiRoutes');
-const routeHtml = require('./routes/htmlRoutes');
+const routeApi = require('./routes/apiRoute');
+const routeHtml = require('./routes/htmlRoute');
 
 // Initialize express app
 const app = express();
@@ -19,7 +19,6 @@ app.use('/', routeHtml);
 app.use((req, res) => {
     res.status(404).end();
 });
-
 
 // Listener for server
 app.listen(PORT, function() {
