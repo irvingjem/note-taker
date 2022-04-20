@@ -38,7 +38,7 @@ class Store {
         const { title, text } = note;
 
         // get notes, add new note, write all notes again, return new note
-        return this.getNotes()
+        return this.notesGet()
             .then((notes) => [...notes, newNote])
             .then((updatedNotes) => this.write(updatedNotes))
             .then(() => newNote);
@@ -47,7 +47,7 @@ class Store {
     // delete note function
     deleteNote(id) {
         // get notes, remove the note based off id, write notes again
-        return this.getNotes()
+        return this.notesGet()
             .then((notes) => notes.filter((note) => note.id !== id))
             .then((filteredNotes) => this.write(filteredNotes));
     };
