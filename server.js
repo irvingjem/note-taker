@@ -1,7 +1,8 @@
 // Node modules
 const express = require("express");
 const fs = require("fs");
-const path = require('path');
+const routeApi = require('./routes/api_routes');
+const routeHtml = require('./routes/html_routes');
 
 // Initialize express app
 const app = express();
