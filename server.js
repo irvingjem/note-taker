@@ -8,7 +8,7 @@ const routeHtml = require('./routes/html_routes');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Setup middleware 
+// Setup middleware and routes
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
