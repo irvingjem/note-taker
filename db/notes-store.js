@@ -18,7 +18,7 @@ class Store {
     };
 
     // get function
-    getNotes() {
+    notesGet() {
         return this.read().then((notes) => {
             let parsedNotes;
 
