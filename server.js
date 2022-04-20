@@ -17,15 +17,16 @@ app.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
+// route for main page
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+});
+
 // Route for .json reading
 app.get("/api/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "/db/db.json"));
 });
 
-// route for main page
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/index.html"));
-});
 
 // save note adding to db.json
 app.post("/api/notes", (req, res) => {
@@ -56,9 +57,7 @@ app.delete("/api/notes/:id", (req, res) => {
     // then update the .json data so the note is correctly displayed
     fs.writeFileSync("./db/db.json", JSON.stringify(listNote));
     res.json(listNote);
-})
-
-
+});
 
 
 // Listener for server
