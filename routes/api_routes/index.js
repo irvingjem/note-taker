@@ -1,7 +1,8 @@
 // Node modules
 const express = require('express');
 const router = express.Router();
-
+// Stored class
+const store = require('../../db/notes-store')
 
 // returns notes
 router.get("/notes", (req, res) => {
@@ -13,7 +14,6 @@ router.get("/notes", (req, res) => {
         })
         // error catcher
         .catch((err) => res.status(500).json(err));
-
 })
 
 // post notes to note html
