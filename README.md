@@ -28,7 +28,7 @@ Herkou - application deployment <br>
 javaScript
 
 ## Demo
-
+    ![note take example](/public/assets/imgs/note-taker.jpg)
 ## Author
 
 ## SPECIFICATIONS
