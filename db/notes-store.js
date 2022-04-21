@@ -1,6 +1,7 @@
 // Node dependancies 
 const fs = require('fs');
 const util = require('util');
+const uniqid = require('uniqid');
 
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile)
@@ -33,11 +34,11 @@ class Store {
     };
 
     // adding note function for indexs to call
-    addNote(note) {
+    noteAdd(note) {
         // deconstuct note to making into seperate variables
         const { title, text } = note;
 
-        const newNote = { title, text };
+        const newNote = { title, text, id: uniqid() };
 
         // get notes | add new note | write all notes again | return new note
         return this.notesGet()
@@ -48,7 +49,7 @@ class Store {
 
     // delete note function
     deleteNote(id) {
-        // get notes, remove the note based off id, write notes again
+        // get notes | remove the note based off id | write notes again
         return this.notesGet()
             .then((notes) => notes.filter((note) => note.id !== id))
             .then((filteredNotes) => this.write(filteredNotes));
