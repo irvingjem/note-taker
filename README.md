@@ -24,7 +24,7 @@ To install necessary dependencies, run the following command: <br> npm i express
 This a project was built using <br>
 node.js <br>
 express.js <br>
-Herkou - application deployment https://ji-note-taker-app.herokuapp.com/ <br> 
+Herkou <br> 
 javaScript
 
 ## Demo
