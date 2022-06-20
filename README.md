@@ -28,8 +28,8 @@ Herkou <br>
 javaScript
 
 ## Demo
-    ![note take example](/public/assets/imgs/note-taker.jpg)
-    Link to live application  - https://ji-note-taker-app.herokuapp.com/
+![note take example](/public/assets/imgs/note-taker.jpg)
+Link to live application  - https://ji-note-taker-app.herokuapp.com/
 ## Author
 
 ## SPECIFICATIONS
